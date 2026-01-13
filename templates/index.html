@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>AI Mental Health Chatbot</title>
+<style>
+body {
+  font-family: Arial;
+  background:#f5f7ff;
+}
+#chat {
+  width: 400px;
+  margin: 50px auto;
+  background:white;
+  padding:20px;
+  border-radius:10px;
+}
+.user {
+  text-align:right;
+  color:#333;
+  margin:10px;
+}
+.bot {
+  text-align:left;
+  color:#4b4bff;
+  margin:10px;
+}
+</style>
+</head>
+<body>
+
+<div id="chat">
+  <div id="messages"></div>
+  <input id="msg" placeholder="Type how you feel..." />
+  <button onclick="send()">Send</button>
+</div>
+
+<script>
+function send(){
+  let text = msg.value;
+  messages.innerHTML += `<div class='user'>${text}</div>`;
+  msg.value = "";
+
+  fetch("/chat",{
+    method:"POST",
+    headers:{'Content-Type':'application/json'},
+    body:JSON.stringify({message:text})
+  })
+  .then(r=>r.json())
+  .then(d=>{
+    messages.innerHTML += `<div class='bot'>${d.reply} (Emotion: ${d.emotion})</div>`;
+  })
+}
+</script>
+
+</body>
+</html>
