@@ -1,5 +1,6 @@
 Euron – AI-Powered Mental Health Chatbot
 
+
 Euron is an AI-driven mental health support chatbot designed to analyze user emotions and stress levels using state-of-the-art Natural Language Processing (NLP) models. It provides empathetic, personalized responses through a clean and interactive web interface.
 
 The system leverages Transformer-based deep learning models to understand emotional context and deliver supportive feedback, making it a powerful tool for early mental health screening and emotional well-being support.
